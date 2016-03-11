@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="pace">
     <!--<h3>{{seconds}} seconds</h3>-->
-    <h3>{{minutes}} per {{unit}}</h3>
+    <span>{{minutes}} per {{unit}}</span>
   </div>
 </template>
 
@@ -25,3 +25,9 @@
     }
   }
 </script>
+
+<style>
+  .pace {
+    font-size: 2.15rem;
+  }
+</style>
