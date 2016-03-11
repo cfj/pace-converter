@@ -13,6 +13,13 @@
       <distance-result :seconds="seconds" distance="21.098" distance-name="Half marathon"></distance-result>
       <distance-result :seconds="seconds" distance="42.195" distance-name="Full marathon"></distance-result>
     </div>
+    <div>
+      <button v-on:click="setCustomDistanceState" v-if="!showCustomDistance">Add custom distance</button>
+      <div v-if="showCustomDistance" class="custom-distance">
+        <input type="range" min="1" max="160" step="1" v-model="customDistance">
+        <distance-result :seconds="seconds" :distance="customDistanceString" :distance-name="customDistanceName"></distance-result>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,7 +35,25 @@ export default {
 
   data () {
     return {
-      seconds: 360
+      seconds: 360,
+      showCustomDistance: false,
+      customDistance: 10
+    }
+  },
+
+  methods: {
+    setCustomDistanceState () {
+      this.showCustomDistance = true
+    }
+  },
+
+  computed: {
+    customDistanceString () {
+      return this.customDistance.toString()
+    },
+
+    customDistanceName () {
+      return this.customDistance + 'k'
     }
   }
 }
