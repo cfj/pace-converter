@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="main">
+    <h1>Pace converter</h1>
     <div>
       <pace :seconds="seconds" unit="km"></pace>
       <span>equals</span>
@@ -40,13 +41,11 @@ html {
 
 body {
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 100%;
 }
 
 .main {
-  margin-top: -100px;
   width: 100%;
   max-width: 600px;
   font-family: Helvetica, sans-serif;

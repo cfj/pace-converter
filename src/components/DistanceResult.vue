@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>{{distanceName}} in {{time}}</h4>
+    <h4><span class="distance">{{distanceName}}</span> in <time>{{time}}</time></h4>
   </div>
 </template>
 
@@ -21,3 +21,13 @@
     }
   }
 </script>
+
+<style>
+  .distance {
+    /*color: red;*/
+  }
+
+  time {
+    /*color: blue;*/
+  }
+</style>
