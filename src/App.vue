@@ -6,7 +6,7 @@
       <span>equals</span>
       <pace :seconds="seconds" unit="mile"></pace>
     </div>
-    <div>
+    <div class="drag-icon-container">
       <i class="medium material-icons drag-indicator" id="indicator">swap_horiz</i>
     </div>
     <input type="range" min="180" max="540" step="1" v-model="seconds">
@@ -19,7 +19,7 @@
     <div>
       <a v-on:click="setCustomDistanceState" v-if="!showCustomDistance" class="btn custom-btn">Add other distance</a>
       <div v-if="showCustomDistance" class="custom-distance">
-        <input type="range" min="1" max="160" step="1" v-model="customDistance">
+        <input type="range" min="1" max="160" step="1" v-model="customDistance" class="custom-range">
         <div class="row">
           <distance-result :seconds="seconds" :distance="customDistanceString" :distance-name="customDistanceName"></distance-result>
         </div>
@@ -71,18 +71,19 @@ h1 {
   font-weight: 300;
 }
 
+.distance-results {
+  margin-top: 1em;
+}
+
 .custom-btn {
-  margin-top: 2em;
+  margin-top: 1em;
+}
+
+.custom-range {
+  margin: 1em 0;
 }
 
 input[type=range] {
   width: 100%;
-}
-
-input[type=range]::-webkit-slider-thumb{
-  background-color: #8bc34a;
-  width: 30px;
-  height: 30px;
-  margin-top: -13px;
 }
 </style>
