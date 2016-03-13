@@ -1,6 +1,5 @@
 <template>
   <div class="pace">
-    <!--<h3>{{seconds}} seconds</h3>-->
     <span><strong>{{minutes}}</strong> <small>/ {{unit}}</small></span>
   </div>
 </template>
