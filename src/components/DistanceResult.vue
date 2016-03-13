@@ -1,6 +1,11 @@
 <template>
   <div class="distance">
-    <span class="distance-name">{{distanceName}}</span> in <time>{{time}}</time>
+    <div class="col s6 right-align">
+      <span class="distance-name">{{distanceName}}</span>
+    </div>
+    <div class="col s6 left-align">
+      <time>{{time}}</time>
+    </div>
   </div>
 </template>
 
@@ -24,8 +29,7 @@
 
 <style>
   .distance {
-    /*color: red;*/
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   time {

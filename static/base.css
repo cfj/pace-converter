@@ -1,3 +1,80 @@
+body {
+  background-color: #3498db;
+  color: #ecf0f1;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+html {
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    color: rgba(0,0,0,0.87);
+}
+
+.main {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.row .col.s6 {
+    width: 50%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+
+.row .col {
+    float: left;
+    box-sizing: border-box;
+    padding: 0 0.75rem;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.left-align {
+    text-align: left;
+}
+
+i.medium {
+    font-size: 3.5rem;
+}
+
+.btn {
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    outline: 0;
+    padding: 0 2rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    color: #fff;
+    background-color: #F39C12;
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 0)
+html {
+    font-size: 14px;
+}
+
 @keyframes shake {
   from, to {
     -webkit-transform: translate3d(0, 0, 0);
