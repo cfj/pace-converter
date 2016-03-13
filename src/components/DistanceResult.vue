@@ -29,7 +29,7 @@
 
 <style>
   .distance {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
   }
 
   time {
