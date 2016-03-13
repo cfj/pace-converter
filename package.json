@@ -1,7 +1,7 @@
 {
-  "name": "vue-test",
-  "description": "A Vue.js project",
-  "author": "Jonathan Svärdén <jonathan.svarden@softhouse.se>",
+  "name": "pace-converter",
+  "description": "Convert running paces",
+  "author": "Jonathan Svärdén <jonathan.svarden@gmail.com>",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "rimraf dist && mkdirp dist && ncp static dist/static && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js",
