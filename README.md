@@ -1,18 +1,15 @@
-# vue-test
+# Pace converter
 
-> A Vue.js project
+> A running pace converter and time calculator.
 
-## Build Setup
+## Build setup
 
 ``` bash
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8010
 npm run dev
-
-# build for production with minification
-npm run build
 
 # run unit tests
 npm test
