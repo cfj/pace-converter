@@ -1,4 +1,4 @@
-# Pace converter
+# Pace converter [![Build Status](https://travis-ci.org/cfj/pace-converter.svg?branch=master)](https://travis-ci.org/cfj/pace-converter)
 
 > A running pace converter and time calculator.
 
