@@ -2,6 +2,8 @@
 
 > A running pace converter and time calculator.
 
+View at https://fsfg.se/pace.
+
 ## Build setup
 
 ``` bash
