@@ -19,7 +19,14 @@
     <div>
       <a v-on:click="setCustomDistanceState" v-if="!showCustomDistance" class="btn custom-btn">Add other distance</a>
       <div v-if="showCustomDistance" class="custom-distance">
-        <input type="range" min="1" max="160" step="1" v-model="customDistance" class="custom-range">
+        <div>
+          <div>Unit</div>
+          <input type="radio" id="radio-unit-km" name="unit-selector" value="k" v-model="customDistanceUnit" v-on:click="resetCustomDistance">
+          <label for="radio-unit-km">km</label>
+          <input type="radio" id="radio-unit-m" name="unit-selector" value="m" v-model="customDistanceUnit" v-on:click="resetCustomDistance">
+          <label for="radio-unit-m">m</label>
+        </div>
+        <input type="range" min="{{customDistanceMinValue}}" max="{{customDistanceMaxValue}}" step="{{customDistanceStep}}" v-model="customDistance" class="custom-range">
         <div class="row">
           <distance-result :seconds="seconds" :distance="customDistanceString" :distance-name="customDistanceName"></distance-result>
         </div>
@@ -32,6 +39,14 @@
 import Pace from './components/Pace'
 import DistanceResult from './components/DistanceResult'
 
+const customDistanceDefaultUnitName = 'k'
+const maximumDistanceInMeters = 1600
+const maximumDistanceInKilometers = 160
+const minimumDistanceInMeters = 0
+const minimumDistanceInKilometers = 1
+const stepInMeters = 50
+const stepInKilometers = 1
+
 export default {
   components: {
     Pace,
@@ -42,23 +57,52 @@ export default {
     return {
       seconds: 360,
       showCustomDistance: false,
-      customDistance: 10
+      customDistance: 10,
+      customDistanceUnit: customDistanceDefaultUnitName,
+      customDistanceStep: 1,
+      customDistanceOriginalMaxValue: maximumDistanceInKilometers,
+      customDistanceMaxValue: this.customDistanceOriginalMaxValue,
+      customDistanceMinValue: 1
     }
   },
 
   methods: {
     setCustomDistanceState () {
       this.showCustomDistance = true
+    },
+
+    resetCustomDistance () {
+      if (this.customDistanceUnit === customDistanceDefaultUnitName) {
+        if ((this.customDistance * 1000) < maximumDistanceInMeters) {
+          this.customDistance = this.customDistance * 1000
+        } else {
+          this.customDistance = maximumDistanceInMeters
+        }
+      } else {
+        this.customDistance = this.customDistance / 1000
+      }
     }
   },
 
   computed: {
     customDistanceString () {
-      return this.customDistance.toString()
+      return this.customDistanceUnit === customDistanceDefaultUnitName ? this.customDistance.toString() : (this.customDistance / 1000).toString()
     },
 
     customDistanceName () {
-      return this.customDistance + 'k'
+      return this.customDistance + this.customDistanceUnit
+    },
+
+    customDistanceMaxValue () {
+      return this.customDistanceUnit === customDistanceDefaultUnitName ? maximumDistanceInKilometers : maximumDistanceInMeters
+    },
+
+    customDistanceMinValue () {
+      return this.customDistanceUnit === customDistanceDefaultUnitName ? minimumDistanceInKilometers : minimumDistanceInMeters
+    },
+
+    customDistanceStep () {
+      return this.customDistanceUnit === customDistanceDefaultUnitName ? stepInKilometers : stepInMeters
     }
   }
 }
@@ -81,6 +125,10 @@ h1 {
 
 .custom-range {
   margin: 1em 0;
+}
+
+.custom-distance {
+  margin-top: 1em;
 }
 
 input[type=range] {

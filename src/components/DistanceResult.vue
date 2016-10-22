@@ -30,6 +30,7 @@
 <style>
   .distance {
     font-size: 1.25rem;
+    overflow: hidden;
   }
 
   time {
