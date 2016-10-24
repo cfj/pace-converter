@@ -2,3 +2,13 @@ language: node_js
 node_js:
   - 'stable'
   - '0.12'
+after_success:
+  if [ "$TRAVIS_BRANCH" == "master" ] ; then
+    if [ "x$DEPLOY_HOST$DEPLOY_PORT$DEPLOY_PATH$DEPLOY_USER$DEPLOY_PASSWORD" != "x" ] ; then
+      npm run deploy ;
+    else
+      echo "Deployment missing environment variables $DEPLOY_(HOST,PORT,PATH,USERNAME,PASSWORD)." ;
+    fi
+  else
+    echo "Deployment omitted." ;
+  fi
