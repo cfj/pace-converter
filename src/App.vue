@@ -22,9 +22,9 @@
         <div>
           <div>Unit</div>
           <input type="radio" id="radio-unit-km" name="unit-selector" value="k" v-model="customDistanceUnit" v-on:click="resetCustomDistance">
-          <label for="radio-unit-km">km</label>
+          <label for="radio-unit-km"><span></span>km</label>
           <input type="radio" id="radio-unit-m" name="unit-selector" value="m" v-model="customDistanceUnit" v-on:click="resetCustomDistance">
-          <label for="radio-unit-m">m</label>
+          <label for="radio-unit-m"><span></span>m</label>
         </div>
         <input type="range" min="{{customDistanceMinValue}}" max="{{customDistanceMaxValue}}" step="{{customDistanceStep}}" v-model="customDistance" class="custom-range">
         <div class="row">
@@ -133,5 +133,32 @@ h1 {
 
 input[type=range] {
   width: 100%;
+}
+
+.custom-distance input[type=range] {
+  margin: 25px 0;
+}
+
+input[type="radio"] {
+    display:none;
+}
+
+input[type="radio"] + label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius:  50%;
+    border: 1px solid rgba(10, 10, 10, 0.4);;
+}
+
+input[type="radio"] + label span {
+     background-color: white;
+}
+
+input[type="radio"]:checked + label span{
+     background-color: #f39c12;
 }
 </style>
