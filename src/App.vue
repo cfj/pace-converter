@@ -9,7 +9,7 @@
     <div class="drag-icon-container">
       <i class="medium material-icons drag-indicator" id="indicator">swap_horiz</i>
     </div>
-    <input type="range" min="180" max="540" step="1" v-model="seconds">
+    <input type="range" min="150" max="450" step="1" v-model="seconds">
     <div class="distance-results row">
       <distance-result :seconds="seconds" distance="5" distance-name="5k"></distance-result>
       <distance-result :seconds="seconds" distance="10" distance-name="10k"></distance-result>
@@ -55,7 +55,7 @@ export default {
 
   data () {
     return {
-      seconds: 360,
+      seconds: 300,
       showCustomDistance: false,
       customDistance: 10,
       customDistanceUnit: customDistanceDefaultUnitName,
