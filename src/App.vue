@@ -14,7 +14,7 @@
       <distance-result :seconds="seconds" distance="5" distance-name="5k"></distance-result>
       <distance-result :seconds="seconds" distance="10" distance-name="10k"></distance-result>
       <distance-result :seconds="seconds" distance="21.098" distance-name="Half marathon"></distance-result>
-      <distance-result :seconds="seconds" distance="42.195" distance-name="Full marathon"></distance-result>
+      <distance-result :seconds="seconds" distance="42.195" distance-name="Marathon"></distance-result>
     </div>
     <div>
       <a v-on:click="setCustomDistanceState" v-if="!showCustomDistance" class="btn custom-btn">Add other distance</a>
